@@ -1,5 +1,5 @@
 {
-    "production": {
+   
         "config_id": "pro",
         "app_name": "my app",
         "app_desc": "my app desc",
@@ -20,5 +20,5 @@
             "node_port": 8080,
             "database": "my-app-db-prod"
         }
-    }
+    
 }
