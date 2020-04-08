@@ -1,0 +1,24 @@
+{
+    "preproduction": {
+        "config_id": "pre",
+        "app_name": "my app",
+        "app_desc": "my app desc",
+        "node_port": 3002,
+        "json_indentation": 4,
+        "database": "my-app-db-dev",
+        "test": {
+            "config_id": "testing-pre",
+            "database": "my-app-db-test-pre"
+        },
+        "ddbb": {
+            "config_id": "staging-pre",
+            "node_port": 8080,
+            "database": "my-app-db-stag-pre"
+        },
+        "api": {
+            "config_id": "production-pre",
+            "node_port": 8080,
+            "database": "my-app-db-prod-pre"
+        }
+    }
+}
