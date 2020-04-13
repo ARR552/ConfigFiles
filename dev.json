@@ -12,8 +12,10 @@
     },
     "ddbb": {
         "config_id": "staging",
-        "node_port": 8080,
-        "database": "my-app-db-stag",
+        "DB": {
+            "url": "http://localhost",
+            "port": 5984
+        },
         "authEnabled": false
     },
     "api": {
