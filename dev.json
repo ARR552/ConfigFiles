@@ -1,24 +1,44 @@
 {
-   
-        "config_id": "development",
-        "app_name": "my app",
-        "app_desc": "my app desc",
-        "node_port": 3002,
-        "json_indentation": 4,
-        "database": "my-app-db-dev",
-        "test": {
-            "config_id": "testing",
-            "database": "my-app-db-test"
+    "config_id": "development",
+    "app_name": "my app",
+    "app_desc": "my app desc",
+    "node_port": 3002,
+    "json_indentation": 4,
+    "database": "my-app-db-dev",
+    "test": {
+        "config_id": "testing",
+        "database": "my-app-db-test",
+        "authEnabled": false
+    },
+    "ddbb": {
+        "config_id": "staging",
+        "node_port": 8080,
+        "database": "my-app-db-stag",
+        "authEnabled": false
+    },
+    "api": {
+        "config_id": "production",
+        "node_port": 8080,
+        "database": "my-app-db-prod",
+        "authEnabled": false
+    },
+    "eventlistener": {
+        "credentials": "rabbitmq:rabbitmq",
+        "address": "127.0.0.1",
+        "host": "",
+        "serviceQueueName": "EventReaderQueue",
+        "delayBetweenMessges": 100,
+        "configURL": "http://localhost:3002",
+        "authEnabled": false
+    },
+    "auth": {
+        "DB": {
+            "url": "http://admin:admin@localhost",
+            "port": 5984,
+            "dbName": "users"
         },
-        "ddbb": {
-            "config_id": "staging",
-            "node_port": 8080,
-            "database": "my-app-db-stag"
-        },
-        "api": {
-            "config_id": "production",
-            "node_port": 8080,
-            "database": "my-app-db-prod"
+        "JWT": {
+            "secret": "asdfgbvvadsudsodnoun"
         }
-    
+    }
 }

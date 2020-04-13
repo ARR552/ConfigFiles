@@ -8,17 +8,39 @@
         "database": "my-app-db-dev",
         "test": {
             "config_id": "testing-pre",
-            "database": "my-app-db-test-pre"
+            "database": "my-app-db-test-pre",
+            "authEnabled": true
         },
         "ddbb": {
             "config_id": "staging-pre",
             "node_port": 8080,
-            "database": "my-app-db-stag-pre"
+            "database": "my-app-db-stag-pre",
+            "authEnabled": true
         },
         "api": {
             "config_id": "production-pre",
             "node_port": 8080,
-            "database": "my-app-db-prod-pre"
+            "database": "my-app-db-prod-pre",
+            "authEnabled": true
+        },
+        "eventlistener": {
+            "credentials": "rabbitmq:rabbitmq",
+            "address": "127.0.0.1",
+            "host": "",
+            "serviceQueueName": "EventReaderQueue",
+            "delayBetweenMessges": 100,
+            "configURL": "http://localhost:3002",
+            "authEnabled": true
+        },
+        "auth": {
+            "DB": {
+                "url": "http://admin:admin@localhost",
+                "port": 5984,
+                "dbName": "users"
+            },
+            "JWT": {
+                "secret": "asdfgbvvadsudsodnoun"
+            }
         }
     
 }
