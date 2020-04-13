@@ -41,6 +41,7 @@
         },
         "JWT": {
             "secret": "asdfgbvvadsudsodnoun"
-        }
+        },
+        "authEnabled": false
     }
 }
