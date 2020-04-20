@@ -43,5 +43,19 @@
             "secret": "asdfgbvvadsudsodnoun"
         },
         "authEnabled": false
+    },
+    "bussinessLogic": {
+        "APIPort": 8080,
+        "auth": {
+            "url": "http://localhost:3000",
+            "checkToken": "http://localhost:3000/token/verify"
+        },
+        "bbdd": {
+            "url": "http://localhost:3000/initdata3/initdata3",
+            "notificationURL": "http://localhost:3000/txdata/txdata"
+        },
+        "txSubmitor": {
+            "url": "http://localhost:9090"
+        }
     }
 }
