@@ -59,7 +59,7 @@
         },
         "authEnabled": false
     },
-    "transactionManager": {
+    "txManager": {
         "APIPort": 9090,
         "auth": {
             "url": "http://localhost:3000",
