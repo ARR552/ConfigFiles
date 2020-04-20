@@ -43,5 +43,13 @@
             "secret": "asdfgbvvadsudsodnoun"
         },
         "authEnabled": false
+    },
+    "middleware": {
+        "APIPort": 8080,
+        "auth": {
+            "url": "http://localhost:3000",
+            "checkToken": "http://localhost:3000/token/verify"
+        },
+        "authEnabled": false
     }
 }
