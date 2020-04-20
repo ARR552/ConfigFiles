@@ -57,5 +57,12 @@
         "txSubmitor": {
             "url": "http://localhost:9090"
         }
+    },
+    "transactionManager":{
+        "APIPort": 9090,
+        "auth": {
+            "url": "http://localhost:3000",
+            "checkToken": "http://localhost:3000/token/verify"
+        }
     }
 }
