@@ -1,46 +1,59 @@
 {
-   
-        "config_id": "pre",
-        "app_name": "my app",
-        "app_desc": "my app desc",
-        "node_port": 3002,
-        "json_indentation": 4,
-        "database": "my-app-db-dev",
-        "test": {
-            "config_id": "testing-pre",
-            "database": "my-app-db-test-pre",
-            "authEnabled": true
+    "config_id": "pre",
+    "app_name": "my app",
+    "app_desc": "my app desc",
+    "node_port": 3002,
+    "json_indentation": 4,
+    "database": "my-app-db-dev",
+    "test": {
+        "config_id": "testing-pre",
+        "database": "my-app-db-test-pre",
+        "authEnabled": true
+    },
+    "ddbb": {
+        "config_id": "staging-pre",
+        "node_port": 8080,
+        "database": "my-app-db-stag-pre",
+        "authEnabled": true
+    },
+    "api": {
+        "config_id": "production-pre",
+        "node_port": 8080,
+        "database": "my-app-db-prod-pre",
+        "authEnabled": true
+    },
+    "eventlistener": {
+        "credentials": "rabbitmq:rabbitmq",
+        "address": "127.0.0.1",
+        "host": "",
+        "serviceQueueName": "EventReaderQueue",
+        "delayBetweenMessges": 100,
+        "configURL": "http://localhost:3002",
+        "authEnabled": true
+    },
+    "auth": {
+        "DB": {
+            "url": "http://admin:admin@localhost",
+            "port": 5984,
+            "dbName": "users"
         },
-        "ddbb": {
-            "config_id": "staging-pre",
-            "node_port": 8080,
-            "database": "my-app-db-stag-pre",
-            "authEnabled": true
-        },
-        "api": {
-            "config_id": "production-pre",
-            "node_port": 8080,
-            "database": "my-app-db-prod-pre",
-            "authEnabled": true
-        },
-        "eventlistener": {
-            "credentials": "rabbitmq:rabbitmq",
-            "address": "127.0.0.1",
-            "host": "",
-            "serviceQueueName": "EventReaderQueue",
-            "delayBetweenMessges": 100,
-            "configURL": "http://localhost:3002",
-            "authEnabled": true
-        },
-        "auth": {
-            "DB": {
-                "url": "http://admin:admin@localhost",
-                "port": 5984,
-                "dbName": "users"
-            },
-            "JWT": {
-                "secret": "asdfgbvvadsudsodnoun"
-            }
+        "JWT": {
+            "secret": "asdfgbvvadsudsodnoun"
         }
-    
+    },
+    "bussinessLogic": {
+        "APIPort": 8080,
+        "auth": {
+            "url": "http://localhost:3000",
+            "checkToken": "http://localhost:3000/token/verify"
+        },
+        "bbdd": {
+            "url": "http://localhost:3000/initdata3/initdata3",
+            "notificationURL": "http://localhost:3000/txdata/txdata"
+        },
+        "txSubmitor": {
+            "url": "http://localhost:9090"
+        },
+        "authEnabled": true
+    }
 }
