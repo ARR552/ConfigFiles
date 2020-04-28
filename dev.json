@@ -58,7 +58,7 @@
             "url": "http://localhost:9090"
         },
         "analytics": {
-            "url": "http://localhost:9001"
+            "url": "http://localhost:15001"
         },
         "authEnabled": false
     },
@@ -71,7 +71,7 @@
         "authEnabled": false
     },
     "analytics": {
-        "APIPort": 9001,
+        "APIPort": 15001,
         "auth": {
             "url": "http://localhost:3000",
             "checkToken": "http://localhost:3000/token/verify"
