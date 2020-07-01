@@ -12,9 +12,37 @@
     },
     "ddbb": {
         "config_id": "staging",
+        "servicePort": 3000,
         "DB": {
-            "url": "http://localhost",
-            "port": 5984
+            "couchdb": {
+                "url": "http://localhost",
+                "port": 5984
+            },
+            "mongodb": {
+                "dbName": "ET",
+                "url": "localhost",
+                "port": 27017,
+                "options": {
+                    "useNewUrlParser": true,
+                    "useUnifiedTopology": true,
+                    "poolSize": 10
+                },
+                "BL": {
+                    "credential": "admin:admin",
+                    "urlOptions": {
+                        "authSource": "ET",
+                        "serverSelectionTimeoutMS": "5000",
+                        "authMechanism": "SCRAM-SHA-256",
+                        "connectTimeoutMS": "10000",
+                        "3t.uriVersion": "3",
+                        "3t.connection.name": "mongodb"
+                    }
+                }
+            }
+        },
+        "paging": {
+            "skip": 0,
+            "limit": 999999
         },
         "authEnabled": false
     },
@@ -28,7 +56,28 @@
         "credentials": "rabbitmq:rabbitmq",
         "address": "127.0.0.1",
         "host": "",
-        "serviceQueueName": "EventReaderQueue",
+        "serviceQueues": [
+            "notificationservice",
+            "mongosync"
+        ],
+        "delayBetweenMessges": 100,
+        "configURL": "http://localhost:3002",
+        "authEnabled": false
+    },
+    "notificationservice": {
+        "credentials": "rabbitmq:rabbitmq",
+        "address": "127.0.0.1",
+        "host": "",
+        "serviceQueueName": "notificationservice",
+        "delayBetweenMessges": 100,
+        "configURL": "http://localhost:3002",
+        "authEnabled": false
+    },
+    "mongosync": {
+        "credentials": "rabbitmq:rabbitmq",
+        "address": "127.0.0.1",
+        "host": "",
+        "serviceQueueName": "mongosync",
         "delayBetweenMessges": 100,
         "configURL": "http://localhost:3002",
         "authEnabled": false
@@ -47,11 +96,14 @@
     "bussinessLogic": {
         "APIPort": 8080,
         "auth": {
-            "url": "http://localhost:3000",
-            "checkToken": "http://localhost:3000/token/verify"
+            "url": "http://localhost:3001",
+            "checkToken": "http://localhost:3001/token/verify",
+            "JWT": {
+                "secret": "asdfgbvvadsudsodnoun"
+            }
         },
         "bbdd": {
-            "url": "http://localhost:3000/initdata3/initdata3",
+            "url": "http://localhost:3000",
             "notificationURL": "http://localhost:3000/txdata/txdata"
         },
         "txSubmitor": {
@@ -63,6 +115,13 @@
         "authEnabled": false
     },
     "txManager": {
+        "credentials": "rabbitmq:rabbitmq",
+        "address": "127.0.0.1",
+        "host": "",
+        "serviceQueues": [
+            "notificationservice"
+        ],
+        "delayBetweenMessges": 100,
         "APIPort": 9090,
         "auth": {
             "url": "http://localhost:3000",
@@ -73,8 +132,8 @@
     "analytics": {
         "APIPort": 15001,
         "auth": {
-            "url": "http://localhost:3000",
-            "checkToken": "http://localhost:3000/token/verify"
+            "url": "http://localhost:3001",
+            "checkToken": "http://localhost:3001/token/verify"
         },
         "authEnabled": false
     }
